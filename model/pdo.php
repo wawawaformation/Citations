@@ -8,7 +8,7 @@
  * @return PDO l'objet PDO de connexion à la base de données
  */
 function getPdo(
-    string $dsn = 'mysql:host:127.0.0.1:3306', 
+    string $dsn = 'mysql:host=127.0.0.1:3306;dbname=quotes', 
     string $user = 'root', 
     string $password = ''
     ) : PDO
