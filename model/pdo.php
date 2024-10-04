@@ -17,10 +17,13 @@ function getPdo(
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        
+        return $db;
     }catch(PDOException $e){
         die('Probleme avec la base de données : ' . $e->getMessage());
     }
 
-    return $db;
+    
 }
+
+//test unitaire
+var_dump(getPdo());
