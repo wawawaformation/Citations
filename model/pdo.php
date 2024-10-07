@@ -26,4 +26,4 @@ function getPdo(
 }
 
 //test unitaire
-var_dump(getPdo());
+//var_dump(getPdo());
