@@ -2,17 +2,19 @@
 
 require ROOT . '/model/users.model.php';
 
-if(isset($_GET['action'])){
-    switch($_GET['action']){
+if (isset($_GET['action'])) {
+    switch ($_GET['action']) {
         case 'allUsers';
         case 'oneUser';
         case 'createUser';
-        $action = $_GET['action'];
-        break;
+        case 'updateUser';
+
+            $action = $_GET['action'];
+            break;
         default:
-        header ('Location: index.php?controller=404');
+            header('Location: index.php?controller=404');
     }
-}else{
+} else {
     $action = 'allUsers';
 }
 
