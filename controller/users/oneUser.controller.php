@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__DIR__, 2) . '/model/users.model.php';
+require_once ROOT . '/model/users.model.php';
 
 if(!isset($_GET['id'])){
     throw new Exception('id inexistant', 125);
