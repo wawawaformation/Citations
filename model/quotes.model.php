@@ -13,7 +13,7 @@
  */
 function getQuotes(PDO $pdo) : array
 {
-    $sql = "SELECT * FROM quotes";
+    $sql = "SELECT *, authors.author FROM quotes LEFT JOIN authors ON quotes.authors_id = authors.id ";
     $q = $pdo->query($sql);
     $quotes = $q->fetchAll();
 
@@ -26,9 +26,9 @@ function getQuotes(PDO $pdo) : array
  * @param int $id identifiant du tuple
  * @return array une citation
  */
-function getOneQuote(PDO $pdo, int $id) : array
+function getOneQuote(PDO $pdo, int $id) : array|false
 {
-    $sql = "SELECT * FROM quotes WHERE quotes.id = ?";
+    $sql = "SELECT *, authors.author FROM quotes  LEFT JOIN authors ON quotes.authors_id = authors.id  WHERE quotes.id = ? ";
     $q = $pdo->prepare($sql);
     $q->execute([$id]);
 
@@ -96,13 +96,9 @@ function updateQuote(PDO $pdo, array $data, int $id) : array
     }
 }
 
-$data = [
-    'quote'=> 'Il n\’y a qu\’une seule erreur innée, c\’est celle de croire que nous sommes là pour être heureux',
-    'explanation'=> 'La satisfaction d\’un manque, sur l\’instant, procure un sentiment de plaisir, tandis que le manque (ou l\’insatisfaction) procure un sentiment de déplaisir. Et le vouloir-vivre qui nous anime, comme vouloir, prend la satisfaction pour visée.
-    C\’est ainsi que nous versons naturellement dans l\’erreur selon laquelle le bonheur serait l\’état suprême où nous réaliserions pleinement notre destinée.',
-];
 
-var_dump(updateQuote($pdo, $data, 5));
+
+
 
 
 /**
@@ -118,3 +114,6 @@ function deleteQuote(PDO $pdo, int $id) : bool
     $success = $q->execute([$id]);
     return ($success);
 }
+
+
+//var_dump(getOneQuote($pdo, 2));
