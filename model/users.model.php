@@ -5,18 +5,22 @@
  * @license GPL v3
  */
 
-
+require_once 'pdo.php';
+$pdo = getPdo();
 
 /**
  * Retourne la liste des utilisateurs
  * @param PDO $pdo connexion à la BDD
  * @return array les tuples des utilisateurs
  */
-function getUsers(PDO $pdo) : array
+function getUsers(PDO $pdo): array
 {
-
+  $sql = 'SELECT * FROM users';
+  $q = $pdo->query($sql);
+  return $q->fetchAll();
 }
-
+//var_dump(getUsers($pdo));
+//die;
 
 /**
  * Retourne un utilisateur
@@ -24,9 +28,12 @@ function getUsers(PDO $pdo) : array
  * @param int $id identifiant de l'utilisateur
  * @return array tuple de l'utilisateur
  */
-function getUserById(PDO $pdo, int $id) : array
+function getUserById(PDO $pdo, int $id): array
 {
-
+  $sql = 'SELECT * FROM users WHERE id= ?';
+  $q = $pdo->prepare($sql);
+  $q->execute([$id]);
+  return $q->fetch();
 }
 
 
@@ -36,9 +43,19 @@ function getUserById(PDO $pdo, int $id) : array
  * @param array $data données de l'utilisateur
  * @return int identifiant du tuple créé
  */
-function createUser(PDO $pdo, array $data) : int
+function createUser(PDO $pdo, array $data): int
 {
+  $sql = 'INSERT INTO users (firstname, lastname, mail, password, token) 
+          VALUES (:firstname, :lastname, :mail, :password, :token)';
+  $q = $pdo->prepare($sql);
+  $q->bindValue(':firstname', $data['firstname']);
+  $q->bindValue(':lastname', $data['lastname']);
+  $q->bindValue(':mail', $data['mail']);
+  $q->bindValue(':password', $data['password']);
+  $q->bindValue(':token', $data['token']);
+  $q->execute();
 
+  return $pdo->lastInsertId();
 }
 
 
@@ -49,8 +66,20 @@ function createUser(PDO $pdo, array $data) : int
  * @param int $id identifiant de l'utilisateur à modifier
  * @return array le tuple modifié
  */
-function updateUser(PDO $pdo, array $data, int $id) : array
+function updateUser(PDO $pdo, array $data, int $id): array
 {
+  $sql = 'UPDATE users 
+          SET firstname = :firstname, lastname = :lastname, mail = :mail, password = :password, token = :token
+          WHERE id= :id ';
+  $q = $pdo->prepare($sql);
+  $q->bindValue(':firstname', $data['firstname']);
+  $q->bindValue(':lastname', $data['lastname']);
+  $q->bindValue(':mail', $data['mail']);
+  $q->bindValue(':password', $data['password']);
+  $q->bindValue(':token', $data['token']);
+  $q->bindValue(':id', $id);
+  $q->execute();
+  return [];
 
 }
 
@@ -61,8 +90,12 @@ function updateUser(PDO $pdo, array $data, int $id) : array
  * @param int $id identifiant de la ligne à supprimer
  * @return bool
  */
-function deleteUser(PDO $pdo, int $id) : bool
+function deleteUser(PDO $pdo, int $id): bool
 {
+  $sql = 'DELETE FROM users WHERE id= :id ';
+  $q = $pdo->prepare($sql);
+  $q->bindValue(':id', $id);
+  return $q->execute();
 
 }
 
@@ -72,9 +105,12 @@ function deleteUser(PDO $pdo, int $id) : bool
  * @param string $mail le mail (unique)
  * @return string|null le mot de passe (null si l'utilisateurs n'existe pas)
  */
-function getPassword(PDO $pdo, tring $mail) : string|null
+function getPassword(PDO $pdo, string $mail): string|null
 {
-
+  $sql = 'SELECT password FROM users WHERE mail = :mail';
+  $q = $pdo->prepare($sql);
+  $q->bindValue(':mail', $mail);
+  return $q->execute();
 }
 
 
@@ -83,7 +119,7 @@ function getPassword(PDO $pdo, tring $mail) : string|null
  * @param string $mail le mail (unique)
  * @return array tableau contenant : id, firstname, lastname, mail
  */
-function getProfile(PDO $pdo, string $mail) : array
+function getProfile(PDO $pdo, string $mail): array
 {
 
 }
@@ -97,7 +133,7 @@ function getProfile(PDO $pdo, string $mail) : array
  * @param string $mail le mail (unique de l'utilisateur)
  * @return string|null 
  */
-function getToken(PDO $pdo, string $mail) : string|null
+function getToken(PDO $pdo, string $mail): string|null
 {
 
 }
@@ -109,9 +145,9 @@ function getToken(PDO $pdo, string $mail) : string|null
  * @param string $token
  * @return boolean
  */
-function createToken(string $mail, string $token) : bool
+function createToken(string $mail, string $token): bool
 {
-    
+
 }
 
 /**
@@ -120,7 +156,7 @@ function createToken(string $mail, string $token) : bool
  * @param string $mail identifie l'utilisateur
  * @return bool
  */
-function deleteToken(PDO $pdo,string $mail) : bool
+function deleteToken(PDO $pdo, string $mail): bool
 {
 
 }
