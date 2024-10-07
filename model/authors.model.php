@@ -98,6 +98,8 @@ function updateAuthor(PDO $pdo, array $data, int $id) : array|false
     }else {return false;}
 
 }
+
+/*
 var_dump(updateAuthor($pdo,[
     'author'=>'JoanaLaffitte',
     'bio'=>'elle démonte ses adversaires',
@@ -105,6 +107,7 @@ var_dump(updateAuthor($pdo,[
     'deathday'=>null,
     'src'=>'https://joana.lesacteursduweb.fr/images/imgjo.jpg'
     ],9));
+*/
 
 /**
  * Supprime un utilisateur
