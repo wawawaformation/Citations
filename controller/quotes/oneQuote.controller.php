@@ -1,10 +1,4 @@
 <?php
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> quotes
 if(!isset($_GET['id'])){
     throw new Exception('Id existe pas', 125);
 }
