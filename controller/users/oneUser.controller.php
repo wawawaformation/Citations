@@ -1,6 +1,6 @@
 <?php
 
-require_once ROOT . '/model/users.model.php';
+
 
 if(!isset($_GET['id'])){
     throw new Exception('id inexistant', 125);
