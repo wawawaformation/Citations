@@ -5,4 +5,4 @@ if(!isset($_GET['id'])){
 
 $quote = getOneQuote($pdo, $_GET['id']);
 
-var_dump($quote);
+require_once ROOT .'/view/template/quotes/one.view.php';
