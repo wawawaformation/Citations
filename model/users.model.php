@@ -30,7 +30,7 @@ function getUsers(PDO $pdo): array
  */
 function getUserById(PDO $pdo, int $id): array
 {
-  $sql = 'SELECT * FROM users WHERE id= ?';
+  $sql = 'SELECT *, DATE_FORMAT (created_at, "%d/%m/%Y à %H:%i") as created  FROM users WHERE id= ?';
   $q = $pdo->prepare($sql);
   $q->execute([$id]);
   return $q->fetch();

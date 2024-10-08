@@ -1,7 +1,7 @@
 <?php
 
 $title = 'Ajout d\'un utilisateur';
-$description = '';
+$description = 'test';
 ob_start();
 ?>
 
@@ -22,7 +22,7 @@ ob_start();
     <label for="password" class="form-label">Mot de passe</label>
     <input type="password" class="form-control" id="password" name="password">
   </div>
-  
+
 
   <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>

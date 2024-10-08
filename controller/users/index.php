@@ -8,7 +8,7 @@ if (isset($_GET['action'])) {
         case 'oneUser';
         case 'createUser';
         case 'updateUser';
-
+        case 'deleteUser';
             $action = $_GET['action'];
             break;
         default:

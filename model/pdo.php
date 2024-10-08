@@ -8,21 +8,20 @@
  * @return PDO l'objet PDO de connexion à la base de données
  */
 function getPdo(
-    string $dsn = 'mysql:host=127.0.0.1:3306;dbname=quotes', 
-    string $user = 'root', 
-    string $password = ''
-    ) : PDO
-{
-    try{
+    string $dsn = 'mysql:host=127.0.0.1:3306;dbname=quotes',
+    string $user = 'root',
+    string $password = 'root'
+): PDO {
+    try {
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         return $db;
-    }catch(PDOException $e){
+    } catch (PDOException $e) {
         die('Probleme avec la base de données : ' . $e->getMessage());
     }
 
-    
+
 }
 
 //test unitaire
