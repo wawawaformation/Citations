@@ -2,19 +2,16 @@
 
 require_once ROOT . '/model/users.model.php';
 
-if(!empty($_POST['mail'])){
-
-$data = [
-    'firstname' => $_POST['firstname'],
-    'lastname' => $_POST['lastname'],
-    'password' => $_POST['password'],
-    'mail' => $_POST['mail'],
-    'token' => $_POST['token'],
-];
-
-$createUser = createUser($pdo, $data);
-
-};
+if(isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'])){
+    if(createUser($pdo, [
+        'firstname' => $_POST['firstname'],
+        'lastname' => $_POST['lastname'],
+        'mail' => $_POST['mail'],
+        'password' => password_hash($_POST ['password'], PASSWORD_DEFAULT),
+    ])){
+        header('location: index.php?controller=users');
+    };
+}
 
 require_once ROOT . '/view/template/users/create.view.php';
 
