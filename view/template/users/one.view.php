@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Liste des utilisateurs';
+$title = 'Un itlisateur';
 $desciption = '';
 ob_start();
 ?>
