@@ -9,9 +9,4 @@ if(!isset($_GET['id'])){
 $user = getUserById($pdo, $_GET['id']);
 
 
-
-echo '<pre>';
-print_r($user);
-echo '</pre>';
-
-//var_dump($user);
+require_once ROOT . '/view/template/users/one.view.php';
