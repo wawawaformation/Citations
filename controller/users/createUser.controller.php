@@ -16,5 +16,6 @@ $createUser = createUser($pdo, $data);
 
 };
 
+require_once ROOT . '/view/template/users/create.view.php';
 
 
