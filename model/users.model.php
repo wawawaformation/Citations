@@ -66,8 +66,7 @@ function createUser(PDO $pdo, array $data): int
  * @param int $id identifiant de l'utilisateur à modifier
  * @return array le tuple modifié
  */
-function updateUser(PDO $pdo, array $data, int $id): array
-{
+function updateUser(PDO $pdo, array $data, int $id): array{
   $sql = 'UPDATE users 
           SET firstname = :firstname, lastname = :lastname, mail = :mail, password = :password, token = :token
           WHERE id= :id ';

@@ -1,20 +1,22 @@
 <?php
 
 require_once ROOT . '/model/users.model.php';
-
+$user = getUserById($pdo, $_GET['id']);
 if (!isset($_GET['id'])) {
     throw new Exception('id inexistant', 125);
 }
-$data = [
-    'firstname' => $_POST['firstname'],
-    'lastname' => $_POST['lastname'],
-    'password' => $_POST['password'],
-    'mail' => $_POST['mail'],
-    'token' => $_POST['token'],
-];
 
-$updateUser = updateUser($pdo, $data, $_GET['id']);
+if(isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'], $_GET['id'])){
+    if(updateUser($pdo, [
+        'firstname' => $_POST['firstname'],
+        'lastname' => $_POST['lastname'],
+        'mail' => $_POST['mail'],
+        'password' => password_hash($_POST ['password'], PASSWORD_DEFAULT),
+        'token' => NULL
+    ], $_GET['id'])){
+        
+    };
+    header('location: index.php?controller=users');
+}
 
-
-
-// var_dump ($updateUser);
+require_once ROOT . '/view/template/users/update.view.php';
