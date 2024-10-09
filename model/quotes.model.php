@@ -13,7 +13,7 @@
  */
 function getQuotes(PDO $pdo) : array
 {
-    $sql = "SELECT *, authors.author FROM quotes LEFT JOIN authors ON quotes.authors_id = authors.id ";
+    $sql = "SELECT quotes.id as id_quotes, quotes.quote, quotes.explanation, authors.author FROM quotes LEFT JOIN authors ON quotes.authors_id = authors.id ";
     $q = $pdo->query($sql);
     $quotes = $q->fetchAll();
 
