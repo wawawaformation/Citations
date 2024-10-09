@@ -19,4 +19,4 @@ if(isset($_GET['controller'])){
     $controller = 'quotes';
 }
 
-require_once ROOT. '/controller/' . $controller . '/index.php';
+require_once ROOT . '/controller/' . $controller . '/index.php';

@@ -49,10 +49,12 @@ die;*/
  */
 function createAuthor(PDO $pdo, array $data) : int|false
 {
-    $sql='INSERT INTO authors(author,biography,birthday,deathday,src) VALUES (:author,:bio,:birthday,:deathday,:src)';
+    print_r($data);
+    die;
+    $sql='INSERT INTO authors(author,biography,birthday,deathday,src) VALUES (:author,:biography,:birthday,:deathday,:src)';
     $q = $pdo->prepare($sql);
     $q->bindValue(':author', $data['author']);
-    $q->bindValue(':bio', $data['bio']);
+    $q->bindValue(':biography', $data['biography']);
     $q->bindValue(':birthday', $data['birthday']);
     $q->bindValue(':deathday', $data['deathday']);
     $q->bindValue(':src', $data['src']);

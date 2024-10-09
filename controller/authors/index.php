@@ -1,6 +1,6 @@
 <?php
 
-require ROOT . '/model/authors.model.php';
+require_once ROOT . '/model/authors.model.php';
 
 if (isset($_GET['action'])) {
 
