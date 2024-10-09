@@ -15,7 +15,8 @@ ob_start();
     <div class="actions">
         <a href="index.php?controller=quotes&action=oneQuote&id=<?= $quote['id_quotes']?>">Voir</a>
         <a href="index.php?controller=quotes&action=updateQuote&id=<?= $quote['id_quotes']?>">Modifier</a>
-        <a href="index.php?controller=quotes&action=deleteQuote&id=<?= $quote['id_quotes']?>">Supprimer</a>
+        <a href="index.php?controller=quotes&action=deleteQuote&id=<?= $quote['id_quotes']?>"
+        onclick="return confirm('Es-tu sûr de vouloir supprimer cette citation ?');">Supprimer</a>
     </div>
 </div>
 

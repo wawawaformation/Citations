@@ -13,7 +13,8 @@ ob_start();
 
 <div class="actions">
         <a href="index.php?controller=quotes&action=updateQuote&id=<?= $_GET['id']?>">Modifier</a>
-        <a href="index.php?controller=quotes&action=deleteQuote&id=<?= $_GET['id']?>">Supprimer</a>
+        <a href="index.php?controller=quotes&action=deleteQuote&id=<?= $_GET['id']?>"
+        onclick="return confirm('Es-tu sûr de vouloir supprimer cette citation ?');">Supprimer</a>
 </div>
 
 
