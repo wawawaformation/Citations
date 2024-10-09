@@ -1,5 +1,7 @@
 <?php
-
+echo '<pre>';
+print_r($author);
+echo '</pre>';
 $title = $author['author'];
 $description = 'Une description de la page en 140 caractères';
 
@@ -7,10 +9,14 @@ ob_start();
 ?>
 
 
-  <img  src="<?= $author['src'] ?>" alt="Nom de l'auteur">
+  <img  src="<?= $author['src'] ?>">
 
-    <h2 ><?= $author['author'] ?></h2>
+   
     <p ><?= $author['biography'] ?></p>
+    <p><strong>Naissance : </strong> <?= $author['naissance_europe'] ?></p>
+    <?php if(!is_null($author['deathday'])): ?>
+      <p><strong>Décès : </strong> <?= $author['deces_europe'] ?></p>
+    <?php endif ?>
    <a href="index.php?controller=authors&action=updateAuthor&id=<?= $_GET['id'] ?>"><i class="bi bi-pen-fill"></i></a>
    <a href="index.php?controller=authors&action=deleteAuthor&id=<?= $_GET['id'] ?>"><i class="bi bi-trash-fill"></i></a>
  
