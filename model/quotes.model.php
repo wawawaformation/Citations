@@ -75,9 +75,10 @@ function createQuote(PDO $pdo, array $data) : int
  */
 function updateQuote(PDO $pdo, array $data, int $id) : array
 {
-    $sql = "UPDATE quotes SET quote = :quote, explanation = :explanation WHERE quotes.id = :id";
+    $sql = "UPDATE quotes SET quote = :quote, explanation = :explanation, authors_id = :authors_id WHERE quotes.id = :id";
     $q = $pdo->prepare($sql);
     $q->bindValue(':quote', $data['quote']);
+    $q->bindValue(':authors_id', $data['authors_id']);
     $q->bindValue(':explanation', $data['explanation']);
     $q->bindValue(':id', $id, PDO::PARAM_INT);
 
