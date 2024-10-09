@@ -56,6 +56,8 @@ function createUser(PDO $pdo, array $data): int
   $q->execute();
 
   return $pdo->lastInsertId();
+  // test pour voir le message d'erreur 
+  //return 0;
 }
 
 
@@ -66,7 +68,8 @@ function createUser(PDO $pdo, array $data): int
  * @param int $id identifiant de l'utilisateur à modifier
  * @return array le tuple modifié
  */
-function updateUser(PDO $pdo, array $data, int $id): array{
+function updateUser(PDO $pdo, array $data, int $id): array
+{
   $sql = 'UPDATE users 
           SET firstname = :firstname, lastname = :lastname, mail = :mail, password = :password, token = :token
           WHERE id= :id ';
@@ -77,8 +80,19 @@ function updateUser(PDO $pdo, array $data, int $id): array{
   $q->bindValue(':password', $data['password']);
   $q->bindValue(':token', $data['token']);
   $q->bindValue(':id', $id);
-  $q->execute();
-  return [];
+  $success = $q->execute();
+  //rajout des code en cas de succes (attention au conflit en les cles (different nom chez quotes))
+  if ($success) {
+    return [
+      'code' => 'success',
+      'text' => 'Mise à jour de l\'utilisateur réussi.'
+    ];
+  } else {
+    return [
+      'code' => "danger",
+      'text' => 'Mise à jour de l\'utilisateur non réussi.'
+    ];
+  }
 
 }
 
