@@ -26,3 +26,4 @@ ob_start();
 <?php
 $content = ob_get_clean();
 require ROOT . '/view/layout.view.php';
+

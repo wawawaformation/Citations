@@ -8,7 +8,7 @@ ob_start();
 <form action="index.php?controller=quotes&action=createQuote" method="post">
 <div class="mb-3">
     <label for="quote" class="form-label">La citation</label><br>
-    <input type="text" class="form-control" id="quote" name="quote">
+    <input type="text" placeholder="une citation..." class="form-control" id="quote" name="quote">
 </div>
 <div class="mb-3">
     <label for="quote" class="form-label">Auteur</label><br>
@@ -22,7 +22,7 @@ ob_start();
 
 <div class="mb-3">
     <label for="explanation" class="form-label">Explication</label><br>
-    <textarea id="explanation" name="explanation" rows="6" class="form-control"></textarea>
+    <textarea id="explanation" placeholder="Signification de la citation" name="explanation" rows="6" class="form-control"></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Ajouter</button>
 
