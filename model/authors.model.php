@@ -89,14 +89,14 @@ function updateAuthor(PDO $pdo, array $data, int $id) : array|false
 {
     $sql='UPDATE authors SET 
     author=:author,
-    biography=:bio,
+    biography=:biography,
     birthday=:birthday,
     deathday=:deathday,
     src=:src WHERE id=:id';
     $q =$pdo->prepare($sql);
     $q->bindValue(':author',$data['author']);
     $q->bindValue(':src', $data['src']);
-    $q->bindValue(':bio', $data['bio']);
+    $q->bindValue(':biography', $data['biography']);
     $q->bindValue(':birthday', $data['birthday']);
     $q->bindValue(':deathday', $data['deathday']);
     $q->bindValue(':id',$id, PDO::PARAM_INT);
