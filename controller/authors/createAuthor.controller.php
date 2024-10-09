@@ -1,11 +1,18 @@
 <?php
 
-if (isset($_POST['author'], $_POST['birthday'], $_POST['deathday'], $_POST['biography'])) {
+if (isset($_POST['author'], $_POST['birthday'], $_POST['deathday'], $_POST['biography'], $_FILES['src'])) {
+
+    if(!$_FILES['src']['error']){
+        move_uploaded_file($_FILES['src']['tmp_name'],  ROOT . '/public/images/authors/' . $_FILES['src']['name']);
+        $src = 'images/authors/' . $_FILES['src']['name'];
+    }else{
+        $src = null;
+    }
     $author = strip_tags($_POST['author']);
     $birthday = $_POST['birthday'];
     $deathday = (empty($_POST['deathday'])) ? null : $_POST['deathday'];
     $biography = (empty($_POST['biography'])) ? null : $_POST['biography'];
-    $src = '';
+   
     $data = [
         'author' => $author,
         'birthday' => $birthday,

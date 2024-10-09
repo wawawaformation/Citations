@@ -1,7 +1,5 @@
 <?php
-echo '<pre>';
-print_r($author);
-echo '</pre>';
+
 $title = $author['author'];
 $description = 'Une description de la page en 140 caractères';
 
