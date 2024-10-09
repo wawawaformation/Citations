@@ -9,15 +9,15 @@ ob_start();
 <form method="post" action="index.php?controller=users&action=updateUser&id=<?=$_GET['id']?>">
   <div class="mb-3">
     <label for="firstname" class="form-label">Prénom*</label>
-    <input placeholder="<?=$user['firstname']?>" type="text" class="form-control" id="firstname" name="firstname" required>
+    <input value="<?=$user['firstname']?>" type="text" class="form-control" id="firstname" name="firstname" required>
   </div>
   <div class="mb-3">
     <label for="lastname" class="form-label">Nom*</label>
-    <input placeholder="<?=$user['lastname']?>" type="text" class="form-control" id="lastname" name="lastname" required>
+    <input value="<?=$user['lastname']?>" type="text" class="form-control" id="lastname" name="lastname" required>
   </div>
   <div class="mb-3">
     <label for="mail" class="form-label">Mail*</label>
-    <input placeholder="<?=$user['mail']?>" type="email" class="form-control" id="mail" name="mail" required>
+    <input value="<?=$user['mail']?>" type="email" class="form-control" id="mail" name="mail" required>
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Mot de passe</label>
