@@ -49,8 +49,7 @@ die;*/
  */
 function createAuthor(PDO $pdo, array $data) : int|false
 {
-    print_r($data);
-    die;
+  
     $sql='INSERT INTO authors(author,biography,birthday,deathday,src) VALUES (:author,:biography,:birthday,:deathday,:src)';
     $q = $pdo->prepare($sql);
     $q->bindValue(':author', $data['author']);
@@ -65,6 +64,13 @@ function createAuthor(PDO $pdo, array $data) : int|false
 }
 //test unitiare
 /*var_dump(createAuthor($pdo,[
+    'author'=>'Davidov',
+    'biography'=>NULL,
+    'birthday'=>'1998-01-01',
+    'deathday'=>null, 
+    'src'=>'zfzifjmog',  
+]));
+var_dump(createAuthor($pdo,[
 'author'=>'Joana',
 'bio'=>'elle démonte des pneus',
 'birthday'=>'1988-09-09',

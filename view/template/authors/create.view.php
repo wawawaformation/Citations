@@ -4,7 +4,7 @@ $description = '';
 
 ob_start();
 ?>
-<form action="index.php?controller=authors&action=createAuthor" method="post">
+<form action="index.php?controller=authors&action=createAuthor" method="post" enctype="multipart/form-data">
 <div class="form-group">
     <label for="author">Nom de l'auteur</label>
     <input type="text" class="form-control" id="author" placeholder="Nom de l'auteur" name="author">
@@ -20,6 +20,10 @@ ob_start();
   <div class="form-group">
   <label for="deathday">Date de décès</label>
   <input type="date" class="form-control" id="deathday" placeholder="jj/mm/aa" name="deathday">
+  </div>
+  <div class="form-group">
+  <label for="src"></label>
+  <input type="file" class="form-control" id="src" name="src">
   </div>
   <button type="submit" class="submit btn btn-primary my-2">Ajouter</button>
 </form>
