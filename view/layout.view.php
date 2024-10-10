@@ -75,7 +75,8 @@
 
 
         <div class="content">
-            <?= htmlspecialchars($content) ?>
+            <?php // htmlspecialchars($content) What The FUCK!! You are MAD ! ?>
+            <?= $content ?>
         </div>
 
     </main>
