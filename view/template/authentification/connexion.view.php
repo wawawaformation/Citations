@@ -38,7 +38,7 @@
             <label for="mail">Mail</label>
             <input type="email" class="form-control" id="mail"  name="mail">
         </div>
-        <div class="form-group">
+        <div class="form-group my-2">
             <label for="password" class="form-label">Mot de passe</label>
             <input type="password" class="form-control" id="password"  name="password">
         </div>

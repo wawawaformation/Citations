@@ -15,11 +15,11 @@ ob_start();
     </div>
     <div class="form-group">
         <label for="birthday">Date de naissance</label>
-        <input type="date" class="form-control" id="birthday" placeholder="jj/mm/aa" name="birthday">
+        <input type="date" class="form-control" id="birthday"  name="birthday">
     </div>
     <div class="form-group">
         <label for="deathday">Date de décès</label>
-        <input type="date" class="form-control" id="deathday" placeholder="jj/mm/aa" name="deathday">
+        <input type="date" class="form-control" id="deathday"  name="deathday">
     </div>
     <div class="form-group">
         <label for="src"></label>

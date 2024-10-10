@@ -16,9 +16,9 @@ ob_start();
                     <h5 class="card-title"><?= $author['author'] ?></h5>
                     <p class="card-text"><?= substr($author['biography'], 0, 200) . '...' ?></p>
                     <div class="actions d-flex justify-content-between">
-                        <a href="index.php?controller=authors&action=oneAuthor&id=<?= $author['id'] ?>" class="text-decoration-none"><i class="bi bi-eye-fill"></i> Voir</a>
-                        <a href="index.php?controller=authors&action=updateAuthor&id=<?= $author['id'] ?>" class="text-decoration-none"><i class="bi bi-pencil-square"></i> Modifier</a>
-                        <a href="index.php?controller=authors&action=deleteAuthor&id=<?= $author['id'] ?>" onClick="confirm('Voulez-vous vraiment supprimer cet auteur ?')" class="text-decoration-none"><i class="bi bi-trash-fill"></i> Supprimer</a>
+                        <a href="index.php?controller=authors&action=oneAuthor&id=<?= $author['id'] ?>" class="text-decoration-none text-secondary"><i class="bi bi-eye-fill"></i><span class="text-secondary">  Voir</span></a>
+                        <a href="index.php?controller=authors&action=updateAuthor&id=<?= $author['id'] ?>" class="text-decoration-none text-secondary"><i class="bi bi-pencil-square"></i><span class="text-secondary">  Modifier</span></a>
+                        <a href="index.php?controller=authors&action=deleteAuthor&id=<?= $author['id'] ?>" onClick="confirm('Voulez-vous vraiment supprimer cet auteur ?')" class="text-decoration-none text-secondary"><i class="bi bi-trash-fill"></i><span class="text-secondary">  Supprimer</span></a>
                     </div>
                 </div>
             </div>

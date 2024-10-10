@@ -23,11 +23,11 @@ ob_start();
                 <td><?= strtoupper($user['lastname']) ?></td>
                 <td><?= $user['mail'] ?></td>
                 <td class="actions d-flex justify-content-between">
-                    <a href="index.php?controller=users&action=oneUser&id=<?= $user['id'] ?>"><i
+                    <a href="index.php?controller=users&action=oneUser&id=<?= $user['id'] ?>" class="text-secondary"><i
                             class="bi bi-eye-fill"></i> Voir</a>
-                    <a href="index.php?controller=users&action=updateUser&id=<?= $user['id'] ?>"><i
+                    <a href="index.php?controller=users&action=updateUser&id=<?= $user['id'] ?>" class="text-secondary"><i
                             class="bi bi-pen-fill"></i> Modifier</a>
-                    <a href="index.php?controller=users&action=deleteUser&id=<?= $user['id'] ?>"
+                    <a href="index.php?controller=users&action=deleteUser&id=<?= $user['id'] ?>" class="text-secondary"
                         onclick="return confirm('Es-tu sûr de vouloir supprimer cette citation ?');">
                         <i class="bi bi-trash-fill"></i> Supprimer</a>
                 </td>

@@ -12,7 +12,7 @@ ob_start();
 </div>
 <div class="mb-3">
     <label for="quote" class="form-label">Auteur</label><br>
-    <select id="authors_id" name="authors_id">
+    <select id="authors_id" name="authors_id" class="form-select">
         <option value="0">Anonyme</option>
         <?php foreach($authors as $author): ?>
             <option value="<?= htmlspecialchars($author['id'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($author['author'], ENT_QUOTES, 'UTF-8') ?></option>
