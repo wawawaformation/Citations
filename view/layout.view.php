@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="https://cdn.tiny.cloud/1/doifec1ciouz6bqxz68tf94ilpahaeubufds7kigcp9klmf0/tinymce/7/tinymce.min.js"
         referrerpolicy="origin"></script>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>

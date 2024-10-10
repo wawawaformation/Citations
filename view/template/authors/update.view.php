@@ -30,12 +30,6 @@ ob_start();
     </div>
     
 
-    <div class="form-group">
-        <img src="<?= $author['src'] ?>" alt="" width="200"><br>
-        <input type="radio" name="garder_img" id="oui" checked value="oui"> <label for="oui">Garder l'image</label><br>
-        <input type="radio" name="garder_img" id="non" value="non"> <label for="non">Supprimer l'image</label><br>
-        
-    </div>
 
     <div class="form-group my-3">
         <img src="<?= $author['src'] ?>" alt="" width="200"><br>
@@ -51,8 +45,7 @@ ob_start();
         
         <label for="src">Charger une nouvelle image</label>
         <input type="file" class="form-control" id="src"  name="src">
-        <label for="src">Charger une nouvelle image</label>
-        <input type="file" class="form-control" id="src" name="src">
+       
     </div>
 
 
