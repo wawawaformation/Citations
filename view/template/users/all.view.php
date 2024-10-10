@@ -19,8 +19,8 @@ ob_start();
     <tbody>
         <?php foreach ($users as $user): ?>
             <tr>
-                <td><?= $user['firstname'] ?></td>
-                <td><?= $user['lastname'] ?></td>
+                <td><?= ucfirst(strtolower($user['firstname'])) ?></td>
+                <td><?= strtoupper($user['lastname']) ?></td>
                 <td><?= $user['mail'] ?></td>
                 <td>
                     <a href="index.php?controller=users&action=oneUser&id=<?= $user['id'] ?>"><i

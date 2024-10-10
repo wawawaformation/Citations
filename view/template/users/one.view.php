@@ -6,13 +6,13 @@ ob_start();
 ?>
 
 <dl>
-  <dt>prenom</dt>
-  <dd><?= $user['firstname'] ?></dd>
-  <dt>nom</dt>
-  <dd><?= $user['lastname'] ?></dd>
-  <dt>mail</dt>
+  <dt>Prénom</dt>
+  <dd><?= ucfirst($user['firstname']) ?></dd>
+  <dt>Nom</dt>
+  <dd><?= strtoupper($user['lastname']) ?></dd>
+  <dt>Mail</dt>
   <dd><?= $user['mail'] ?></dd>
-  <dt>date de creation</dt>
+  <dt>Date de création</dt>
   <dd><?= $user['created'] ?></dd>
 </dl>
 <a href="index.php?controller=users&action=updateUser&id=<?= $_GET['id'] ?>">
