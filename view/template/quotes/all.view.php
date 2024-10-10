@@ -7,7 +7,7 @@ $description = 'Une description de la page en 150 caractères';
 ob_start();
 ?>
 
-<a href="index.php?controller=quotes&action=createQuote" class="btn btn-primary">Ajouter une citation</a>
+<a href="index.php?controller=quotes&action=createQuote">Ajouter une citation</a>
 <?php foreach($quotes as $quote): ?>
 <div class="quote my-3">
     <q><?= $quote['quote']?></q>
@@ -15,8 +15,7 @@ ob_start();
     <div class="actions">
         <a href="index.php?controller=quotes&action=oneQuote&id=<?= $quote['id_quotes']?>">Voir</a>
         <a href="index.php?controller=quotes&action=updateQuote&id=<?= $quote['id_quotes']?>">Modifier</a>
-        <a href="index.php?controller=quotes&action=deleteQuote&id=<?= $quote['id_quotes']?>"
-        onclick="return confirm('Es-tu sûr de vouloir supprimer cette citation ?');">Supprimer</a>
+        <a href="index.php?controller=quotes&action=deleteQuote&id=<?= $quote['id_quotes']?>">Supprimer</a>
     </div>
 </div>
 
@@ -26,4 +25,3 @@ ob_start();
 <?php
 $content = ob_get_clean();
 require ROOT . '/view/layout.view.php';
-

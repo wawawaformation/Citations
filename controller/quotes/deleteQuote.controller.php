@@ -19,4 +19,3 @@ if(deleteQuote($pdo, $_GET['id'])){
 
 }
 header('Location: index.php?controller=quotes');
-

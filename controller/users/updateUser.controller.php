@@ -6,16 +6,17 @@ if (!isset($_GET['id'])) {
     throw new Exception('id inexistant', 125);
 }
 
-if(isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'], $_GET['id'])){
-    if(updateUser($pdo, [
+if (isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'], $_GET['id'])) {
+    //test affichage uniquement sur la liste utilisateur (flash_msg) 
+
+    $_SESSION['flash_msg'] = updateUser($pdo, [
         'firstname' => $_POST['firstname'],
         'lastname' => $_POST['lastname'],
         'mail' => $_POST['mail'],
-        'password' => password_hash($_POST ['password'], PASSWORD_DEFAULT),
+        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
         'token' => NULL
-    ], $_GET['id'])){
-        
-    };
+    ], $_GET['id']);
+
     header('location: index.php?controller=users');
 }
 
