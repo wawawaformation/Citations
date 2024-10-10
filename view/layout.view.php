@@ -31,31 +31,29 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link <?php if ($controller == 'quotes')
-                                echo 'active' ?>"
-                                    href="index.php?controller=quotes">Citations</a>
+                                echo 'active' ?>" href="index.php?controller=quotes">Citations</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link <?php if ($controller == 'authors')
-                                echo 'active' ?>"
-                                    href="index.php?controller=authors">Auteurs</a>
+                                echo 'active' ?>" href="index.php?controller=authors">Auteurs</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link <?php if ($controller == 'users')
-                                echo 'active' ?>"
-                                    href="index.php?controller=users">Utilisateurs</a>
+                                echo 'active' ?>" href="index.php?controller=users">Utilisateurs</a>
                             </li>
                         </ul>
-                        <ul>
+                        <ul class="d-flex gap-3 list-unstyled my-auto">
                             <li class="nav-item">
                                 Bonjour <?= ucfirst(strtolower($_SESSION['profile']['firstname'])) ?>
                             <?= strtoupper($_SESSION['profile']['lastname']) ?>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?controller=profile">Mon profil</a>
+                            <a class="nav-link" href="index.php?controller=profile"><i
+                                    class="bi bi-person-fill"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?controller=authentification&action=deconnexion">Se
-                                déconnecter</a>
+                            <a class="nav-link" href="index.php?controller=authentification&action=deconnexion"><i
+                                    class="bi bi-power"></i></a>
                         </li>
 
                     </ul>
@@ -74,7 +72,7 @@
     <main id="main" class="container my-5">
 
         <h2 class="subtitle my-3"><?= $title ?></h2>
-        <h2 class="subtitle my-3"><?= $title ?></h2>
+
 
         <div class="content">
             <?= $content ?>

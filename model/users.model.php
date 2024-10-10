@@ -153,7 +153,10 @@ function getProfile(PDO $pdo, string $mail): array|false
  */
 function getToken(PDO $pdo, string $mail): string|null
 {
-
+  $sql = 'SELECT token FROM users WHERE mail= ?';
+  $q = $pdo->prepare($sql);
+  $q->execute([$mail]);
+  return $q->fetchColumn();
 }
 
 /**
@@ -163,8 +166,16 @@ function getToken(PDO $pdo, string $mail): string|null
  * @param string $token
  * @return boolean
  */
-function createToken(string $mail, string $token): bool
+function createToken(PDO $pdo, string $mail): bool
 {
+  $p = new OAuthProvider();
+  $token = $p->generateToken(8);
+  $sql = 'UPDATE users SET token=:token WHERE mail=:mail';
+  $q = $pdo->prepare($sql);
+  $q->bindValue(':token', $token);
+  $q->bindValue(':mail', $mail);
+  return $q->execute();
+
 
 }
 
