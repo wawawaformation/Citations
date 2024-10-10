@@ -8,7 +8,7 @@ ob_start();
 <form action="index.php?controller=quotes&action=updateQuote&id=<?=$_GET['id'] ?>"method="post">
 <div class="mb-3">
     <label for="quote" class="form-label">La nouvelle citation</label><br>
-    <input type="text" class="form-control" id="quote" name="quote">
+    <input type="text" placeholder="Modification de la citation..." class="form-control" id="quote" name="quote">
 </div>
 <div class="mb-3">
     <label for="author_id" class="form-label">Auteur</label><br>
@@ -22,7 +22,7 @@ ob_start();
 
 <div class="mb-3">
     <label for="explanation" class="form-label">Explication</label><br>
-    <textarea id="explanation" name="explanation" rows="6" class="form-control"></textarea>
+    <textarea id="explanation" placeholder="Modification des explications de cette citation..." name="explanation" rows="6" class="form-control"></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Ajouter</button>
 

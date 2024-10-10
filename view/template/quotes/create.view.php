@@ -22,7 +22,7 @@ ob_start();
 
 <div class="mb-3">
     <label for="explanation" class="form-label">Explication</label><br>
-    <textarea id="explanation" placeholder="La signification de la citation..." name="explanation" rows="6" class="form-control"></textarea>
+    <textarea id="explanation" placeholder="Les explications au sujet de cette citation..." name="explanation" rows="6" class="form-control"></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Ajouter</button>
 
