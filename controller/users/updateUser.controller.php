@@ -14,6 +14,7 @@ if (isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['passw
         'lastname' => $_POST['lastname'],
         'mail' => $_POST['mail'],
         'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
         'token' => NULL
     ], $_GET['id']);
 
