@@ -15,7 +15,7 @@ ob_start();
     <select id="authors_id" name="authors_id">
         <option value="0">Anonyme</option>
         <?php foreach($authors as $author): ?>
-            <option value="<?= $author['id'] ?>"><?= $author['author'] ?></option>
+            <option value="<?= htmlspecialchars($author['id'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($author['author'], ENT_QUOTES, 'UTF-8') ?></option>
         <?php endforeach ?>
     </select>
 </div>
@@ -27,6 +27,7 @@ ob_start();
 <button type="submit" class="btn btn-primary">Ajouter</button>
 
 </form>
+
 <?php
 
 $content = ob_get_clean();

@@ -15,7 +15,7 @@ ob_start();
     <select id="authors_id" name="authors_id" class="form-select">
         <option value="0">Anonyme</option>
         <?php foreach($authors as $author): ?>
-            <option value="<?= $author['id'] ?>"><?= $author['author'] ?></option>
+            <option value="<?= htmlspecialchars($author['id']) ?>"><?= htmlspecialchars($author['author']) ?></option>
         <?php endforeach ?>
     </select>
 </div>
