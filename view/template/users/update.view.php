@@ -19,8 +19,7 @@ ob_start();
   </div>
   <div class="mb-3">
     <label for="mail" class="form-label">Mail*</label>
-    <input placeholder="<?= $user['mail'] ?>" value="<?= $user['mail'] ?>" type="email" class="form-control" id="mail"
-      name="mail" required>
+    <input value="<?= $user['mail'] ?>" type="email" class="form-control" id="mail" name="mail" required>
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Mot de passe</label>

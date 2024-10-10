@@ -10,7 +10,7 @@
 function getPdo(
     string $dsn = 'mysql:host=127.0.0.1:3306;dbname=quotes',
     string $user = 'root',
-    string $password = ''
+    string $password = 'root'
 ): PDO {
     try {
         $db = new PDO($dsn, $user, $password);
