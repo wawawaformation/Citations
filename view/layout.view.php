@@ -44,8 +44,8 @@
                         </ul>
                         <ul class="d-flex gap-3 list-unstyled my-auto">
                             <li class="nav-item">
-                                Bonjour <?= ucfirst(strtolower($_SESSION['profile']['firstname'])) ?>
-                            <?= strtoupper($_SESSION['profile']['lastname']) ?>
+                                Bonjour <?= htmlspecialchars(ucfirst(strtolower($_SESSION['profile']['firstname']))) ?>
+                            <?= htmlspecialchars(strtoupper($_SESSION['profile']['lastname'])) ?>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?controller=profile"><i
@@ -62,8 +62,8 @@
             </div>
         </nav>
         <?php if (isset($_SESSION['msg'])): ?>
-            <div class="alert alert-<?= $_SESSION['msg']['code'] ?>">
-                <?= $_SESSION['msg']['text'] ?>
+            <div class="alert alert-<?= $_SESSION['msg']['code'] ?>"> <!--Mettre le htmlspecialchars ici ?-->
+                <?= htmlspecialchars($_SESSION['msg']['text']) ?>
             </div>
             <?php unset($_SESSION['msg']);
         endif ?>
@@ -75,7 +75,7 @@
 
 
         <div class="content">
-            <?= $content ?>
+            <?= htmlspecialchars($content) ?>
         </div>
 
     </main>
