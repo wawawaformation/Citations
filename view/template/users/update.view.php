@@ -4,23 +4,23 @@ $title = 'Edition d\'un utilisateur';
 $description = 'test';
 ob_start();
 ?>
-
+<!--j'ai mis une valeur par defaut en plus -->
 <div class="text">Veuillez remplir tous les champs*</div>
-<form method="post" action="index.php?controller=users&action=updateUser&id=<?=$_GET['id']?>">
+<form method="post" action="index.php?controller=users&action=updateUser&id=<?= $_GET['id'] ?>">
   <div class="mb-3">
     <label for="firstname" class="form-label">Prénom*</label>
-    <input value="<?=$user['firstname']?>" type="text" class="form-control" id="firstname" name="firstname" required>
+    <input value="<?= $user['firstname'] ?>" type="text" class="form-control" id="firstname" name="firstname" required>
   </div>
   <div class="mb-3">
     <label for="lastname" class="form-label">Nom*</label>
-    <input value="<?=$user['lastname']?>" type="text" class="form-control" id="lastname" name="lastname" required>
+    <input value="<?= $user['lastname'] ?>" type="text" class="form-control" id="lastname" name="lastname" required>
   </div>
   <div class="mb-3">
     <label for="mail" class="form-label">Mail*</label>
-    <input value="<?=$user['mail']?>" type="email" class="form-control" id="mail" name="mail" required>
+    <input value="<?= $user['mail'] ?>" type="email" class="form-control" id="mail" name="mail" required>
   </div>
   <div class="mb-3">
-    <label for="password" class="form-label">Mot de passe</label>
+    <label for="password" class="form-label">passe-partout</label>
     <input type="password" class="form-control" id="password" name="password">
   </div>
 

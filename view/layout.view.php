@@ -12,7 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script src="https://cdn.tiny.cloud/1/doifec1ciouz6bqxz68tf94ilpahaeubufds7kigcp9klmf0/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/doifec1ciouz6bqxz68tf94ilpahaeubufds7kigcp9klmf0/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -29,24 +30,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($controller == 'quotes') echo 'active' ?>" href="index.php?controller=quotes">Citations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?php if ($controller == 'authors') echo 'active' ?>" href="index.php?controller=authors">Auteurs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?php if ($controller == 'users') echo 'active' ?>" href="index.php?controller=users">Utilisateurs</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="nav-item">
-                            Bonjour <?= ucfirst(strtolower($_SESSION['profile']['firstname'])) ?> <?= strtoupper($_SESSION['profile']['lastname']) ?>
+                            <a class="nav-link <?php if ($controller == 'quotes')
+                                echo 'active' ?>"
+                                    href="index.php?controller=quotes">Citations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?php if ($controller == 'authors')
+                                echo 'active' ?>"
+                                    href="index.php?controller=authors">Auteurs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?php if ($controller == 'users')
+                                echo 'active' ?>"
+                                    href="index.php?controller=users">Utilisateurs</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="nav-item">
+                                Bonjour <?= ucfirst(strtolower($_SESSION['profile']['firstname'])) ?>
+                            <?= strtoupper($_SESSION['profile']['lastname']) ?>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?controller=profile">Mon profil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?controller=authentification&action=deconnexion">Se déconnecter</a>
+                            <a class="nav-link" href="index.php?controller=authentification&action=deconnexion">Se
+                                déconnecter</a>
                         </li>
 
                     </ul>
@@ -54,16 +63,17 @@
                 </div>
             </div>
         </nav>
-        <?php if (isset($_SESSION['msg'])) : ?>
+        <?php if (isset($_SESSION['msg'])): ?>
             <div class="alert alert-<?= $_SESSION['msg']['code'] ?>">
                 <?= $_SESSION['msg']['text'] ?>
             </div>
-        <?php unset($_SESSION['msg']);
+            <?php unset($_SESSION['msg']);
         endif ?>
 
     </header>
     <main id="main" class="container my-5">
 
+        <h2 class="subtitle my-3"><?= $title ?></h2>
         <h2 class="subtitle my-3"><?= $title ?></h2>
 
         <div class="content">
@@ -74,8 +84,12 @@
     <footer id="footer">
 
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
     <script src="js/tinymce.js"></script>
 </body>
 
