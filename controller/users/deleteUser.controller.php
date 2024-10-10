@@ -9,12 +9,12 @@ if (!isset($_GET['id'])) {
 if (deleteUser($pdo, $_GET['id'])) {
   $_SESSION['flash_msg'] = [
     'code' => 'success',
-    'text' => 'L\'utilisateur a bien été supprimée.'
+    'text' => 'L\'utilisateur a bien été supprimé.'
   ];
 } else {
   $_SESSION['flash_msg'] = [
     'code' => 'danger',
-    'text' => 'L\'utilisateur n\'a pas été supprimée.'
+    'text' => 'L\'utilisateur n\'a pas été supprimé.'
   ];
 }
 header('location: index.php?controller=users');
