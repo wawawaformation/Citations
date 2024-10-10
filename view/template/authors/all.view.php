@@ -9,15 +9,17 @@ ob_start();
 
 <div class="row">
     <?php foreach ($authors as $author) : ?>
-        <div class="col-4">
+        <div class="col-12  col-md-4">
             <div class="card my-3">
                 <img class="card-img-top" src="<?= $author['src'] ?>" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><?= $author['author'] ?></h5>
-                    <p class="card-text"><?= substr($author['biography'], 0 ,200) . '...' ?></p>
-                    <a href="index.php?controller=authors&action=oneAuthor&id=<?= $author['id'] ?>"><i class="bi bi-eye-fill"></i></a>
-                    <a href="index.php?controller=authors&action=updateAuthor&id=<?= $author['id'] ?>"><i class="bi bi-pencil-square"></i></a>
-                    <a href="index.php?controller=authors&action=deleteAuthor&id=<?= $author['id'] ?>" onClick="confirm('Voulez-vous vraiment supprimer cet auteur ?')"><i class="bi bi-trash-fill"></i></a>
+                    <p class="card-text"><?= substr($author['biography'], 0, 200) . '...' ?></p>
+                    <div class="actions d-flex justify-content-between">
+                        <a href="index.php?controller=authors&action=oneAuthor&id=<?= $author['id'] ?>" class="text-decoration-none"><i class="bi bi-eye-fill"></i> Voir</a>
+                        <a href="index.php?controller=authors&action=updateAuthor&id=<?= $author['id'] ?>" class="text-decoration-none"><i class="bi bi-pencil-square"></i> Modifier</a>
+                        <a href="index.php?controller=authors&action=deleteAuthor&id=<?= $author['id'] ?>" onClick="confirm('Voulez-vous vraiment supprimer cet auteur ?')" class="text-decoration-none"><i class="bi bi-trash-fill"></i> Supprimer</a>
+                    </div>
                 </div>
             </div>
         </div>

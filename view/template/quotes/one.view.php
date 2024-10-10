@@ -11,9 +11,9 @@ ob_start();
     <div class="explanation"><?= htmlspecialchars($quote['explanation']) ?></div>
 </div>
 
-<div class="actions">
-        <a href="index.php?controller=quotes&action=updateQuote&id=<?= htmlspecialchars($_GET['id'])?>">Modifier</a>
-        <a href="index.php?controller=quotes&action=deleteQuote&id=<?= htmlspecialchars($_GET['id'])?>">Supprimer</a>
+<div class="actions d-flex gap-3">
+    <a href="index.php?controller=quotes&action=updateQuote&id=<?= htmlspecialchars($_GET['id']) ?>">Modifier</a>
+    <a href="index.php?controller=quotes&action=deleteQuote&id=<?= htmlspecialchars($_GET['id']) ?>">Supprimer</a>
 </div>
 
 
