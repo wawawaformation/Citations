@@ -3,7 +3,7 @@
 if(isset($_POST['quote'], $_POST['authors_id'], $_POST['explanation'])){
     createQuote($pdo, [
         'quote'=> $_POST['quote'],
-        'authors_id'=> ($_POST['authors_id'] == 0) ? NULL : $_POST['authors_id'],
+        'authors_id'=> $_POST['authors_id'],
         'explanation'=> (empty($_POST['explanation'])) ? NULL : $_POST['explanation']
     ]);
     header('Location: index.php?controller=quotes');
