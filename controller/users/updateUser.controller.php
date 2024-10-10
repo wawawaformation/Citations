@@ -7,23 +7,16 @@ if (!isset($_GET['id'])) {
 }
 
 if (isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'], $_GET['id'])) {
-    if (updateUser($pdo, [
+    //test affichage uniquement sur la liste utilisateur (flash_msg) 
+
+    $_SESSION['flash_msg'] = updateUser($pdo, [
         'firstname' => $_POST['firstname'],
         'lastname' => $_POST['lastname'],
         'mail' => $_POST['mail'],
         'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
         'token' => NULL
-    ], $_GET['id'])) {
-        $_SESSION['msg'] = [
-            'code' => 'success',
-            'text' => 'L\'utilisateur a bien été modifié.'
-        ];
-    } else {
-        $_SESSION['msg'] = [
-            'code' => 'warning',
-            'text' => 'L\'utilisateur n\'a pas pu être modifié.'
-        ];
-    };
+    ], $_GET['id']);
+
     header('location: index.php?controller=users');
 }
 
