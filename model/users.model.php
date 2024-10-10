@@ -166,7 +166,7 @@ function getToken(PDO $pdo, string $mail): string|null
  * @param string $token
  * @return boolean
  */
-function createToken(PDO $pdo, string $mail): bool
+function createToken(PDO $pdo, string $mail, string $token): bool
 {
   $p = new OAuthProvider();
   $token = $p->generateToken(8);
