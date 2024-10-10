@@ -109,7 +109,9 @@ function getPassword(PDO $pdo, string $mail): string|null
   $sql = 'SELECT password FROM users WHERE mail = :mail';
   $q = $pdo->prepare($sql);
   $q->bindValue(':mail', $mail);
-  return $q->execute();
+  $q->execute();
+
+  return $q->fetchColumn();
 }
 
 
@@ -118,9 +120,12 @@ function getPassword(PDO $pdo, string $mail): string|null
  * @param string $mail le mail (unique)
  * @return array tableau contenant : id, firstname, lastname, mail
  */
-function getProfile(PDO $pdo, string $mail): array
+function getProfile(PDO $pdo, string $mail): array|false
 {
-
+  $sql = 'SELECT id, mail, firstname, lastname FROM users WHERE mail=?';
+  $q = $pdo->prepare($sql);
+  $q->execute([$mail]);
+  return $q->fetch();
 }
 
 

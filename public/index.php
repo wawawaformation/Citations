@@ -3,13 +3,12 @@
 session_start();
 define('ROOT', dirname(__DIR__));
 
-
-
 if(isset($_GET['controller'])){
     switch($_GET['controller']){
         case 'quotes':
         case 'users':
         case 'authors' :
+        case 'authentification' :
             $controller = $_GET['controller'];
             break;
         default:
@@ -19,5 +18,11 @@ if(isset($_GET['controller'])){
 }else{
     $controller = 'quotes';
 }
+
+
+if(!isset($_SESSION['profile'])){
+    $controller = 'authentification';
+}
+
 
 require_once ROOT . '/controller/' . $controller . '/index.php';

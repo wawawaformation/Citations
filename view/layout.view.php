@@ -29,29 +29,42 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link <?php if($controller == 'quotes') echo 'active'?>" href="index.php?controller=quotes">Citations</a>
+                            <a class="nav-link <?php if ($controller == 'quotes') echo 'active' ?>" href="index.php?controller=quotes">Citations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if($controller == 'authors') echo 'active'?>" href="index.php?controller=authors">Auteurs</a>
+                            <a class="nav-link <?php if ($controller == 'authors') echo 'active' ?>" href="index.php?controller=authors">Auteurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if($controller == 'users') echo 'active'?>" href="index.php?controller=users">Utilisateurs</a>
+                            <a class="nav-link <?php if ($controller == 'users') echo 'active' ?>" href="index.php?controller=users">Utilisateurs</a>
                         </li>
+                    </ul>
+                    <ul>
+                        <li class="nav-item">
+                            Bonjour <?= ucfirst(strtolower($_SESSION['profile']['firstname'])) ?> <?= strtoupper($_SESSION['profile']['lastname']) ?>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?controller=profile">Mon profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?controller=authentification&action=deconnexion">Se déconnecter</a>
+                        </li>
+
                     </ul>
 
                 </div>
             </div>
         </nav>
-        <?php if(isset($_SESSION['msg'])) : ?>
+        <?php if (isset($_SESSION['msg'])) : ?>
             <div class="alert alert-<?= $_SESSION['msg']['code'] ?>">
                 <?= $_SESSION['msg']['text'] ?>
             </div>
-        <?php unset($_SESSION['msg']); endif ?>
+        <?php unset($_SESSION['msg']);
+        endif ?>
 
     </header>
     <main id="main" class="container my-5">
 
-    <h2 class="subtitle my-3"><?= $title ?></h2>
+        <h2 class="subtitle my-3"><?= $title ?></h2>
 
         <div class="content">
             <?= $content ?>
