@@ -168,8 +168,9 @@ function getToken(PDO $pdo, string $mail): string|null
  */
 function createToken(PDO $pdo, string $mail, string $token): bool
 {
-  $p = new OAuthProvider();
-  $token = $p->generateToken(8);
+  //a mettre dans le controlleur pour generer le $token aleatoirement   
+  //$p = new OAuthProvider();
+  //$token = $p->generateToken(8);
   $sql = 'UPDATE users SET token=:token WHERE mail=:mail';
   $q = $pdo->prepare($sql);
   $q->bindValue(':token', $token);
@@ -187,5 +188,9 @@ function createToken(PDO $pdo, string $mail, string $token): bool
  */
 function deleteToken(PDO $pdo, string $mail): bool
 {
-
+  // update le token a null pour le supprime https://stackoverflow.com/questions/23334085/php-delete-specific-column-value-from-sql-table
+  $sql = 'UPDATE users SET token=NULL WHERE mail=:mail';
+  $q = $pdo->prepare($sql);
+  $q->bindValue(':mail', $mail);
+  return $q->execute();
 }
