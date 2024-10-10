@@ -3,33 +3,45 @@
 if(!isset($_GET['id'])){
     $_SESSION['msg'] = [
         'code'=> 'warning',
-        'text'=> 'L\'auteur est untrouvable.'
+        'text'=> 'L\'auteur est introuvable.'
     ];
     header('Location: index.php?controller=authors');
 }
 
-/*
-echo '<pre>';
-print_r($_POST);
-print_r($_GET['id']);
-echo '</pre>';
-die();
-*/
 
-if (isset($_POST['author'], $_POST['birthday'], $_POST['deathday'], $_POST['biography'], $_FILES['src'])) {
+if(isset($_POST['author'], $_POST['biography'], $_POST['birthday'], $_POST['deathday'], $_POST['garder_img'])){
+    $src = getOneAuthor($pdo, $_GET['id'])['src'];
+    if($_POST['garder_img'] == 'non'){
+        $path = ROOT . '/public/' . $src;
+        unlink($path);
+        $src = null;
+    }
 
-   if(updateAuthor($pdo, [
-        'author'=> $_POST['author'],
-        'birthday'=> $_POST['birthday'],
-        'deathday'=> $_POST['deathday'],
-        'biography'=> $_POST['biography'],
-        'src'=> $_FILES['src']
-    ], 
-    $_GET['id'])){
+    if(isset($_FILES['src']) && !$_FILES['src']['error']){
+        $path = ROOT . '/public/' . $src;
+        unlink($path);
+       
+        $tmp = $_FILES['src']['tmp_name'];
 
-    };
+        $src = 'images/authors/' . $_FILES['src']['name'];
+        $path = ROOT . '/public/' .$src;
+        move_uploaded_file($tmp, $path);
+    }
+    updateAuthor($pdo, [
+        'author'=>$_POST['author'],
+        'biography'=>$_POST['biography'],
+        'birthday' =>$_POST['birthday'],
+        'deathday' => $_POST['deathday'],
+        'src' => $src
+    ], $_GET['id']);
+    $_SESSION['msg'] = [
+        'code'=> 'success',
+        'text'=> 'L\'auteur a bien été modifié'
+    ];
     header('Location: index.php?controller=authors');
 }
+
+
 
 
 $author = getOneAuthor($pdo, $_GET['id']);

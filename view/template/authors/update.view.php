@@ -27,9 +27,19 @@ ob_start();
         <input type="date" class="form-control" id="deathday" placeholder="jj/mm/aa" name="deathday"
             value="<?= $author['deathday'] ?>">
     </div>
+    
+
     <div class="form-group">
-        <label for="src"></label>
-        <input type="file" class="form-control" id="src" name="src">
+        <img src="<?= $author['src'] ?>" alt="" width="200"><br>
+        <input type="radio" name="garder_img" id="oui" checked value="oui"> <label for="oui">Garder l'image</label><br>
+        <input type="radio" name="garder_img" id="non" value="non"> <label for="non">Supprimer l'image</label><br>
+        
+    </div>
+
+    <div class="form-group">
+        
+        <label for="src">Charger une nouvelle image</label>
+        <input type="file" class="form-control" id="src"  name="src">
     </div>
     <button type="submit" class="submit btn btn-primary my-2">Modifier</button>
 </form>
