@@ -48,7 +48,7 @@
                             <?= strtoupper($_SESSION['profile']['lastname']) ?>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?controller=profile"><i
+                            <a class="nav-link" href="index.php?controller=profile&id=<?= $_SESSION['profile']['id'] ?>"><i
                                     class="bi bi-person-fill"></i></a>
                         </li>
                         <li class="nav-item">

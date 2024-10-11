@@ -8,6 +8,7 @@ if(isset($_GET['controller'])){
         case 'quotes':
         case 'users':
         case 'authors' :
+        case 'profile' :
         case 'authentification' :
             $controller = $_GET['controller'];
             break;

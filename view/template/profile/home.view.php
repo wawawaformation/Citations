@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Détail de l\'utilisateur';
+$title = 'Profil';
 $description = 'test';
 ob_start();
 ?>
@@ -15,10 +15,10 @@ ob_start();
   <dt>Date de création</dt>
   <dd><?= $user['created'] ?></dd>
 </dl>
-<a href="index.php?controller=users&action=updateUser&id=<?= $_GET['id'] ?>">
+<a href="index.php?controller=profile&action=updateProfile&id=<?= $_GET['id'] ?>">
   <i class="bi bi-pen-fill"></i></a>
-<a href="index.php?controller=users&action=deleteUser&id=<?= $_GET['id'] ?>"
-  onclick="return confirm('Es-tu sûr de vouloir supprimer cet utilisateur ?');">
+<a href="index.php?controller=profile&action=updateProfile&id=<?= $_GET['id'] ?>"
+  onclick="return confirm('Es-tu sûr de vouloir supprimer ce profil ?');">
   <i class="bi bi-trash-fill"></i></a>
 
 <?php

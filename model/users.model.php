@@ -71,13 +71,14 @@ function createUser(PDO $pdo, array $data): int
 function updateUser(PDO $pdo, array $data, int $id): array
 {
   $sql = 'UPDATE users 
-          SET firstname = :firstname, lastname = :lastname, mail = :mail, password = :password, token = :token
+          SET firstname = :firstname, lastname = :lastname, mail = :mail, token = :token
           WHERE id= :id ';
   $q = $pdo->prepare($sql);
   $q->bindValue(':firstname', $data['firstname']);
   $q->bindValue(':lastname', $data['lastname']);
   $q->bindValue(':mail', $data['mail']);
-  $q->bindValue(':password', $data['password']);
+  //on enlève le mot de passe du formulaire
+  //$q->bindValue(':password', $data['password']);
   $q->bindValue(':token', $data['token']);
   $q->bindValue(':id', $id);
   $success = $q->execute();
@@ -95,7 +96,37 @@ function updateUser(PDO $pdo, array $data, int $id): array
   }
 
 }
+/**
+ * Modifie mot de passe utilisateur
+ *
+ * @param PDO $pdo connexion à la BDD
+ * @param array $data les donnees à modifier
+ * @param integer $id identifiant de l'utilisateur à modifier
+ * @return array
+ */
+function updatePassword(PDO $pdo, array $data, int $id): array 
+{
+$sql = 'UPDATE users 
+          SET password= :password;
+          WHERE id= :id ';
+  $q = $pdo->prepare($sql);
+  $q->bindValue(':password', $data['password']);
+  $q->bindValue(':id', $id);
+  $success = $q->execute();
+  //rajout des code en cas de succes (attention au conflit en les cles (different nom chez quotes))
+  if ($success) {
+    return [
+      'code' => 'success',
+      'text' => 'Mise à jour du profil réussi.'
+    ];
+  } else {
+    return [
+      'code' => "danger",
+      'text' => 'Mise à jour du profil non réussi.'
+    ];
+  }
 
+}
 
 /**
  * Supprime un utilisateur
@@ -168,7 +199,7 @@ function getToken(PDO $pdo, string $mail): string|null
  */
 function createToken(PDO $pdo, string $mail, string $token): bool
 {
-  //a mettre dans le controlleur pour generer le $token aleatoirement   
+  //a mettre dans le controlleur pour generer le $token aleatoirement, quand profile sera crée
   //$p = new OAuthProvider();
   //$token = $p->generateToken(8);
   $sql = 'UPDATE users SET token=:token WHERE mail=:mail';

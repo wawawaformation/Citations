@@ -19,10 +19,7 @@ ob_start();
     <label for="mail" class="form-label">Mail*</label>
     <input value="<?= $user['mail'] ?>" type="email" class="form-control" id="mail" name="mail" required>
   </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">passe-partout</label>
-    <input type="password" class="form-control" id="password" name="password">
-  </div>
+
 
 
   <button type="submit" class="btn btn-primary">Enregistrer</button>

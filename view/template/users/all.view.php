@@ -28,7 +28,7 @@ ob_start();
                     <a href="index.php?controller=users&action=updateUser&id=<?= $user['id'] ?>"><i
                             class="bi bi-pen-fill"></i></a>
                     <a href="index.php?controller=users&action=deleteUser&id=<?= $user['id'] ?>"
-                        onclick="return confirm('Es-tu sûr de vouloir supprimer cette citation ?');">
+                        onclick="return confirm('Es-tu sûr de vouloir supprimer cet utilisateur?');">
                         <i class="bi bi-trash-fill"></i></a>
                 </td>
 
